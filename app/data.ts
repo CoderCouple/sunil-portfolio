@@ -174,6 +174,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Dec 2016',
     link: 'https://www2.deloitte.com',
     id: 'work-deloitte',
+    logo: '/logos/deloitte_logo.png',
   },
   {
     company: 'Tata Consultancy Services',
@@ -182,6 +183,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Sep 2013',
     link: 'https://www.tcs.com',
     id: 'work-tcs',
+    logo: '/logos/tcs_logo.png',
   },
 ]
 
