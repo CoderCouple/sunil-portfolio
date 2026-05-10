@@ -130,6 +130,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: 'https://github.com/CoderCouple?tab=repositories&q=octopod',
     id: 'work-octopod',
+    logo: '/logos/octopod_logo.png',
   },
   {
     company: 'eBay',
