@@ -163,15 +163,15 @@ export default function Personal() {
             Bio
           </p>
           <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-            Visionary founder and AI thought leader architecting the future of enterprise LLM platforms. 
-            Currently spearheading LinkedIn's revolutionary Agent Platform—the industry's most advanced 
-            infrastructure for long-running, tool-using AI agents with memory and orchestration capabilities.
+            Founder & CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Octopod AI</strong>,
+            and a Member of Technical Staff at eBay — based in the San Francisco Bay Area.
+            I work at the intersection of full-stack systems and applied AI.
           </p>
           <p className="text-zinc-600 dark:text-zinc-400">
-            As Founder & CEO of Fulloop AI, built groundbreaking LLM-powered technical interview agents 
-            that are transforming how companies evaluate talent. Former engineering leader across Meta, 
-            Snap, and Uber, with a proven track record of scaling teams and delivering AI innovations 
-            that impact millions of users globally.
+            Previously cofounder and CTO of Fulloop AI, an LLM-powered technical interview platform.
+            Before that, shipped at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Most of my
+            tinkering — AI agents, LLM memory systems, developer tooling — lives on{' '}
+            <a className="underline" href="https://github.com/CoderCouple" target="_blank" rel="noopener noreferrer">GitHub</a>.
           </p>
         </div>
       </motion.section>
@@ -180,23 +180,23 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Key Achievements</h3>
+        <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Highlights</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-12">
           <div className="rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-4 dark:from-blue-950/20 dark:to-indigo-950/20">
-            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">LinkedIn Agent Platform</h4>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Leading enterprise AI infrastructure powering millions of agent interactions</p>
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Founder & CEO — Octopod AI</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">Building AI agents and developer tooling at the cutting edge</p>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-emerald-50 to-teal-50 p-4 dark:from-emerald-950/20 dark:to-teal-950/20">
-            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Fulloop AI Founder</h4>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Secured eBay as design partner, raised funding, built 7-person team</p>
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">eBay — Member of Technical Staff</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">Full-stack + AI engineering on production systems at scale</p>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 p-4 dark:from-purple-950/20 dark:to-pink-950/20">
-            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Big Tech Leadership</h4>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Staff Engineer at Snap, EM at Uber, Engineer at Meta</p>
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Cofounder & CTO — Fulloop AI</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">LLM-powered technical interview platform; led engineering from zero to one</p>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-amber-50 to-orange-50 p-4 dark:from-amber-950/20 dark:to-orange-950/20">
-            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Education Excellence</h4>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Carnegie Mellon MS Data Science, Mumbai University CS</p>
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Education</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">MS Computer Software Engineering, San José State (3.76 GPA) · BE Information Technology, VESIT Mumbai</p>
           </div>
         </div>
       </motion.section>

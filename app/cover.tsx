@@ -37,10 +37,10 @@ export function Cover() {
               Sunil Tiwari
             </h1>
             <p className="mb-6 text-xl text-gray-300 font-medium">
-              Engineer & builder.
+              CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-founder (Fulloop)
             </p>
             <p className="mx-auto max-w-3xl text-xl text-gray-300 leading-relaxed">
-              Short intro about what you do.
+              Engineer in the SF Bay Area working on full-stack and AI systems.
             </p>
           </div>
         </div>
@@ -72,10 +72,10 @@ export function Cover() {
             Sunil Tiwari
           </h1>
           <p className="mb-6 text-xl text-gray-300 font-medium">
-            Engineer & builder.
+            CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-founder (Fulloop)
           </p>
           <p className="mx-auto max-w-3xl text-xl text-gray-300 leading-relaxed">
-            Short intro about what you do.
+            Engineer in the SF Bay Area working on full-stack and AI systems.
           </p>
         </div>
         {/* Floating AI-themed decorations */}

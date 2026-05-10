@@ -92,12 +92,11 @@ export function Header() {
             Sunil Tiwari
           </h1>
           <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium">
-            {/* TODO: Add your tagline */}
-            Engineer & builder.
+            CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-founder (Fulloop)
           </p>
           <p className="mx-auto max-w-4xl text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            {/* TODO: Add a one-paragraph intro */}
-            Short intro about what you do, what you're working on, and what you care about.
+            Engineer in the San Francisco Bay Area working on full-stack systems and AI agents.
+            Currently at eBay; previously cofounded Fulloop AI and built at Amazon Music, Roku, Yahoo, Deloitte, and TCS.
           </p>
         </section>
       )}
