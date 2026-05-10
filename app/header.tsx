@@ -74,25 +74,19 @@ export function Header() {
       {isHomePage && (
         <section className="py-16 text-center">
           <div className="mb-4 flex items-center justify-center">
-            <div className="relative flex h-32 w-32 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-zinc-100 to-zinc-200 ring-2 ring-zinc-200 dark:from-zinc-800 dark:to-zinc-900 dark:ring-zinc-700">
+            <div className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-zinc-200 dark:ring-zinc-700">
               <img
-                src="/headshot.png"
+                src="/sunil-headshot.png"
                 alt="Sunil Tiwari"
-                className="h-full w-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none'
-                }}
+                className="h-full w-full object-cover object-top"
               />
-              <span className="absolute text-3xl font-semibold text-zinc-500 dark:text-zinc-400">
-                ST
-              </span>
             </div>
           </div>
           <h1 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-zinc-100 sm:text-5xl">
             Sunil Tiwari
           </h1>
           <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium">
-            CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-founder (Fulloop)
+            CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-CTO @ Fulloop AI
           </p>
           <p className="mx-auto max-w-4xl text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
             Engineer in the San Francisco Bay Area working on full-stack systems and AI agents.

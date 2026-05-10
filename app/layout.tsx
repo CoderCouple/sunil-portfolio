@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: 'Sunil Tiwari',
     template: '%s | Sunil Tiwari'
   },
-  description: 'Sunil Tiwari — Founder & CEO of Octopod AI. Member of Technical Staff at eBay. Ex-founder (Fulloop AI). Previously at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Based in the SF Bay Area.',
+  description: 'Sunil Tiwari — CEO of Octopod AI. Member of Technical Staff at eBay. Ex-CTO of Fulloop AI. Previously at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Based in the SF Bay Area.',
 };
 
 const geist = Geist({

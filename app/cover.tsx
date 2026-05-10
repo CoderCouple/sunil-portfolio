@@ -27,7 +27,7 @@ export function Cover() {
             <div className="mb-4 flex items-center justify-center">
               <div className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-white/20">
                 <img
-                  src="/headshot.png"
+                  src="/sunil-headshot.png"
                   alt="Sunil Tiwari"
                   className="h-full w-full object-cover"
                 />
@@ -37,7 +37,7 @@ export function Cover() {
               Sunil Tiwari
             </h1>
             <p className="mb-6 text-xl text-gray-300 font-medium">
-              CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-founder (Fulloop)
+              CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-CTO @ Fulloop AI
             </p>
             <p className="mx-auto max-w-3xl text-xl text-gray-300 leading-relaxed">
               Engineer in the SF Bay Area working on full-stack and AI systems.
@@ -62,9 +62,9 @@ export function Cover() {
           <div className="mb-4 flex items-center justify-center">
             <div className="relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-white/20">
               <img
-                src="/headshot.png"
+                src="/sunil-headshot.png"
                 alt="Sunil Tiwari"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-top"
               />
             </div>
           </div>
@@ -72,7 +72,7 @@ export function Cover() {
             Sunil Tiwari
           </h1>
           <p className="mb-6 text-xl text-gray-300 font-medium">
-            CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-founder (Fulloop)
+            CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-CTO @ Fulloop AI
           </p>
           <p className="mx-auto max-w-3xl text-xl text-gray-300 leading-relaxed">
             Engineer in the SF Bay Area working on full-stack and AI systems.

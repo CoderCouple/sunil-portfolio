@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
   {
     name: 'Fulloop AI',
     description:
-      'Cofounded and led engineering as CTO. AI-powered technical interview platform with cheating-resistant assessments, real-world coding environments, and structured rubrics for authentic skill evaluation.',
+      'Led engineering as CTO. AI-powered technical interview platform with cheating-resistant assessments, real-world coding environments, and structured rubrics for authentic skill evaluation.',
     link: 'https://www.fulloop.ai',
     video: '/cover.jpg',
     id: 'project-fulloop',
@@ -125,7 +125,7 @@ export const PROJECTS: Project[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Octopod AI',
-    title: 'Founder & CEO',
+    title: 'CEO',
     start: '2025',
     end: 'Present',
     link: 'https://github.com/CoderCouple?tab=repositories&q=octopod',
@@ -138,6 +138,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: 'https://www.ebay.com',
     id: 'work-ebay',
+    logo: '/logos/ebay_logo.png',
   },
   {
     company: 'Amazon Music',
@@ -146,6 +147,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Jul 2023',
     link: 'https://music.amazon.com',
     id: 'work-amazon',
+    logo: '/logos/amazon_music_logo.png',
   },
   {
     company: 'Roku Inc.',
@@ -154,6 +156,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Oct 2021',
     link: 'https://www.roku.com',
     id: 'work-roku',
+    logo: '/logos/Roku_logo.svg',
   },
   {
     company: 'Yahoo',
@@ -162,6 +165,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Mar 2021',
     link: 'https://www.yahoo.com',
     id: 'work-yahoo',
+    logo: '/logos/yahoo_logo.png',
   },
   {
     company: 'Deloitte India (US Offices)',

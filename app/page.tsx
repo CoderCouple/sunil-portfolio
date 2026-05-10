@@ -163,12 +163,12 @@ export default function Personal() {
             Bio
           </p>
           <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-            Founder & CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Octopod AI</strong>,
+            CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Octopod AI</strong>,
             and a Member of Technical Staff at eBay — based in the San Francisco Bay Area.
             I work at the intersection of full-stack systems and applied AI.
           </p>
           <p className="text-zinc-600 dark:text-zinc-400">
-            Previously cofounder and CTO of Fulloop AI, an LLM-powered technical interview platform.
+            Previously CTO of Fulloop AI, an LLM-powered technical interview platform.
             Before that, shipped at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Most of my
             tinkering — AI agents, LLM memory systems, developer tooling — lives on{' '}
             <a className="underline" href="https://github.com/CoderCouple" target="_blank" rel="noopener noreferrer">GitHub</a>.
@@ -183,7 +183,7 @@ export default function Personal() {
         <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Highlights</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-12">
           <div className="rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 p-4 dark:from-blue-950/20 dark:to-indigo-950/20">
-            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Founder & CEO — Octopod AI</h4>
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">CEO — Octopod AI</h4>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Building AI agents and developer tooling at the cutting edge</p>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-emerald-50 to-teal-50 p-4 dark:from-emerald-950/20 dark:to-teal-950/20">
@@ -191,7 +191,7 @@ export default function Personal() {
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Full-stack + AI engineering on production systems at scale</p>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 p-4 dark:from-purple-950/20 dark:to-pink-950/20">
-            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Cofounder & CTO — Fulloop AI</h4>
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">CTO — Fulloop AI</h4>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">LLM-powered technical interview platform; led engineering from zero to one</p>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-amber-50 to-orange-50 p-4 dark:from-amber-950/20 dark:to-orange-950/20">
@@ -260,6 +260,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
+        {BLOG_POSTS.length > 0 && <>
         <h3 className="mb-5 text-lg font-medium text-zinc-900 dark:text-zinc-100">Blog</h3>
         <div className="flex flex-col space-y-2">
           {BLOG_POSTS.slice(0, 5).map((post) => (
@@ -295,8 +296,10 @@ export default function Personal() {
             </a>
           )}
         </div>
+        </>}
       </motion.section>
 
+      {MEDIA_PUBLICATIONS.length > 0 && (
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -329,7 +332,9 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
+      )}
 
+      {SPEAKING_ENGAGEMENTS.length > 0 && (
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -362,7 +367,9 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
+      )}
 
+      {JUDGING_OPPORTUNITIES.length > 0 && (
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -395,7 +402,9 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
+      )}
 
+      {BOOKS.length > 0 && (
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -431,7 +440,9 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
+      )}
 
+      {NEWS_PUBLICATIONS.length > 0 && (
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -464,6 +475,7 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
+      )}
 
       <motion.section
         variants={VARIANTS_SECTION}
