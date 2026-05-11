@@ -26,6 +26,20 @@ export type JudgingOpportunity = {
 
 export const JUDGING_DATA: JudgingOpportunity[] = [
   {
+    event: 'New judging engagements coming soon',
+    role: 'TBD',
+    date: 'Coming soon',
+    organization: 'TBD',
+    link: '#',
+    id: 'judge-tbd',
+    slug: 'coming-soon',
+    description: 'New judging and advisory engagements are in the works — check back here for upcoming opportunities.',
+    location: 'TBD',
+    duration: 'TBD',
+    responsibilities: [],
+  },
+  /* Archived — uncomment to re-publish on the homepage and /judging/<slug>.
+  {
     event: 'AI Pitch Night w/ TheAgentic & Tehele Ventures',
     role: 'Startup Judge',
     date: 'February 25, 2026',
@@ -135,4 +149,5 @@ export const JUDGING_DATA: JudgingOpportunity[] = [
     certificateUrl: 'https://drive.google.com/file/d/1URzsX7m2BINpm6tBgv4tYQbaD0As6uDK/view',
     docsUrl: 'https://drive.google.com/drive/folders/1uNrs7oblXNGap33bO2u1kSuTbbRSz4zj',
   },
+  */
 ]
