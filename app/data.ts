@@ -255,6 +255,22 @@ export const MEDIA_PUBLICATIONS: MediaPublication[] = [
 
 export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
   {
+    title: 'New talks coming soon',
+    event: 'TBD',
+    date: 'Coming soon',
+    location: 'TBD',
+    link: '#',
+    id: 'speak-tbd',
+    slug: 'coming-soon',
+    description: 'New speaking engagements are in the works — check back here for upcoming talks and conferences.',
+    topics: [],
+    audience: 'TBD',
+    organizer: 'TBD',
+    organizerDescription: '',
+    conferenceDescription: '',
+  },
+  /* Archived — uncomment to re-publish on the homepage and /speaking/<slug>.
+  {
     title: 'AI in the SDLC: Engineering Workflows in the Age of AI',
     event: 'QonfX San Francisco 2026',
     date: 'March 20, 2026',
@@ -319,6 +335,7 @@ export const SPEAKING_ENGAGEMENTS: SpeakingEngagement[] = [
     image: '/ai-devsummit/ai-devsummit-speaker.png',
     eventWebsiteUrl: 'https://aidevsummit.co/',
   },
+  */
 ]
 
 export const JUDGING_OPPORTUNITIES: JudgingOpportunity[] = JUDGING_DATA
