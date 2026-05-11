@@ -359,7 +359,7 @@ export default function Personal() {
                     {engagement.title}
                   </h4>
                   <p className="text-zinc-500 dark:text-zinc-400">
-                    {engagement.event} • {engagement.location} • {engagement.date}
+                    {[engagement.event, engagement.location, engagement.date].filter(Boolean).join(' • ')}
                   </p>
                 </div>
               </div>
@@ -394,7 +394,12 @@ export default function Personal() {
                     {opportunity.event}
                   </h4>
                   <p className="text-zinc-500 dark:text-zinc-400">
-                    {opportunity.role} at {opportunity.organization} • {opportunity.date}
+                    {[
+                      opportunity.role && opportunity.organization
+                        ? `${opportunity.role} at ${opportunity.organization}`
+                        : opportunity.role || opportunity.organization,
+                      opportunity.date,
+                    ].filter(Boolean).join(' • ')}
                   </p>
                 </div>
               </div>

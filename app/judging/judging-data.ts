@@ -27,15 +27,15 @@ export type JudgingOpportunity = {
 export const JUDGING_DATA: JudgingOpportunity[] = [
   {
     event: 'New judging engagements coming soon',
-    role: 'TBD',
-    date: 'Coming soon',
-    organization: 'TBD',
+    role: '',
+    date: 'TBD',
+    organization: '',
     link: '#',
     id: 'judge-tbd',
     slug: 'coming-soon',
     description: 'New judging and advisory engagements are in the works — check back here for upcoming opportunities.',
-    location: 'TBD',
-    duration: 'TBD',
+    location: '',
+    duration: '',
     responsibilities: [],
   },
   /* Archived — uncomment to re-publish on the homepage and /judging/<slug>.
