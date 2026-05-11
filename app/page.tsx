@@ -223,11 +223,11 @@ export default function Personal() {
               <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
                 <div className="relative flex w-full flex-row items-center gap-4">
                   {job.logo && (
-                    <div className="flex-shrink-0">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md dark:bg-white dark:p-1">
                       <img
                         src={job.logo}
                         alt={`${job.company} logo`}
-                        className="h-12 w-12 object-contain"
+                        className="h-full w-full object-contain"
                         onError={(e) => {
                           e.currentTarget.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23f3f4f6' rx='8'/%3E%3Ctext x='24' y='28' font-family='Arial' font-size='14' fill='%236b7280' text-anchor='middle'%3E${job.company.charAt(0)}%3C/text%3E%3C/svg%3E`
                         }}
