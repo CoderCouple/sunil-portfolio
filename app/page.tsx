@@ -145,6 +145,80 @@ function MagneticSocialLink({
   )
 }
 
+const JSON_LD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://suniltiwari.io/#person',
+      name: 'Sunil Tiwari',
+      givenName: 'Sunil',
+      familyName: 'Tiwari',
+      url: 'https://suniltiwari.io',
+      image: 'https://suniltiwari.io/sunil-headshot.png',
+      jobTitle: 'CEO',
+      description:
+        'AI thought leader, engineer, and computer scientist. CEO of Octopod AI, Member of Technical Staff at eBay, ex-CTO of Fulloop AI.',
+      email: 'mailto:sunil28071987@gmail.com',
+      sameAs: [
+        'https://github.com/CoderCouple',
+        'https://www.linkedin.com/in/sdtiwari/',
+        'https://x.com/sunil28071987',
+        'https://blog.suniltiwari.io',
+      ],
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Octopod AI',
+      },
+      alumniOf: [
+        {
+          '@type': 'CollegeOrUniversity',
+          name: 'San José State University',
+          url: 'https://www.sjsu.edu',
+        },
+        {
+          '@type': 'CollegeOrUniversity',
+          name: "Vivekanand Education Society's Institute Of Technology",
+        },
+      ],
+      knowsAbout: [
+        'Artificial Intelligence',
+        'AI Agents',
+        'Large Language Models',
+        'Machine Learning',
+        'Software Engineering',
+        'Full-Stack Development',
+        'AI Memory Systems',
+        'Context Engineering',
+        'Computer Science',
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'San Francisco Bay Area',
+        addressRegion: 'CA',
+        addressCountry: 'US',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://suniltiwari.io/#website',
+      url: 'https://suniltiwari.io',
+      name: 'Sunil Tiwari',
+      description:
+        'Personal site of Sunil Tiwari — AI thought leader, engineer, and computer scientist.',
+      publisher: { '@id': 'https://suniltiwari.io/#person' },
+      inLanguage: 'en-US',
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': 'https://suniltiwari.io/#profile',
+      url: 'https://suniltiwari.io',
+      mainEntity: { '@id': 'https://suniltiwari.io/#person' },
+      isPartOf: { '@id': 'https://suniltiwari.io/#website' },
+    },
+  ],
+}
+
 export default function Personal() {
   return (
     <motion.main
@@ -153,6 +227,10 @@ export default function Personal() {
       initial="hidden"
       animate="visible"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+      />
 
       <motion.section
         variants={VARIANTS_SECTION}

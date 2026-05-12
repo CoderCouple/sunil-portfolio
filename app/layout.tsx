@@ -12,16 +12,85 @@ export const viewport: Viewport = {
   themeColor: '#ffffff',
 }
 
+const SITE_URL = 'https://suniltiwari.io'
+const SITE_NAME = 'Sunil Tiwari'
+const SITE_DESCRIPTION =
+  'Sunil Tiwari — AI thought leader, engineer, and computer scientist. CEO of Octopod AI, Member of Technical Staff at eBay, ex-CTO of Fulloop AI. Writing, speaking, and building at the frontier of AI agents, LLM memory systems, and applied machine learning.'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://suniltiwari.io/'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: '/'
+    canonical: '/',
   },
   title: {
-    default: 'Sunil Tiwari',
-    template: '%s | Sunil Tiwari'
+    default: 'Sunil Tiwari — AI Thought Leader, Engineer, Computer Scientist',
+    template: '%s | Sunil Tiwari',
   },
-  description: 'Sunil Tiwari — CEO of Octopod AI. Member of Technical Staff at eBay. Ex-CTO of Fulloop AI. Previously at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Based in the SF Bay Area.',
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: 'Sunil Tiwari', url: SITE_URL }],
+  creator: 'Sunil Tiwari',
+  publisher: 'Sunil Tiwari',
+  category: 'technology',
+  keywords: [
+    'Sunil Tiwari',
+    'AI thought leader',
+    'AI engineer',
+    'computer scientist',
+    'artificial intelligence',
+    'AI agents',
+    'LLM',
+    'large language models',
+    'machine learning',
+    'software engineer',
+    'full-stack engineer',
+    'Octopod AI',
+    'Fulloop AI',
+    'eBay engineering',
+    'Amazon Music engineering',
+    'AI memory systems',
+    'context engineering',
+    'AI startup founder',
+    'San Francisco Bay Area',
+    'San José State University',
+    'sdtiwari',
+    'CoderCouple',
+  ],
+  openGraph: {
+    type: 'profile',
+    locale: 'en_US',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: 'Sunil Tiwari — AI Thought Leader, Engineer, Computer Scientist',
+    description: SITE_DESCRIPTION,
+    firstName: 'Sunil',
+    lastName: 'Tiwari',
+    username: 'sdtiwari',
+    gender: 'male',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sunil Tiwari — AI Thought Leader, Engineer, Computer Scientist',
+    description: SITE_DESCRIPTION,
+    creator: '@sunil28071987',
+    site: '@sunil28071987',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  verification: {
+    // Drop your token from Google Search Console here when you set it up:
+    // google: 'xxxxxxxxxxxxxxxx',
+    // bing: 'xxxxxxxxxxxxxxxx',
+  },
 };
 
 const geist = Geist({
