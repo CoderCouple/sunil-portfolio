@@ -1,0 +1,651 @@
+Big topic — let me plan the high-impact SEO work first, then execute. Checking what's currently in place.
+
+  Listed 1 directory (ctrl+o to expand)
+
+❯ i want to establish my self as AI thought leader, Engineer and Computer Scientist
+
+⏺ Got the positioning — AI thought leader, Engineer, Computer Scientist. That informs the metadata language, keywords,
+  and structured data. Re-checking the bracketed paths (zsh glob issue).
+
+  Searched for 1 pattern (ctrl+o to expand)
+
+⏺ OK — the detail pages are 'use client' so per-page metadata exports there need a refactor (skipping for now). The
+  high-leverage SEO work I can do without restructuring:
+
+  1. Enhanced layout metadata — Open Graph + Twitter cards + keywords positioning you as AI thought leader/engineer/CS
+  2. Dynamic Open Graph image at /opengraph-image — auto-generates a 1200×630 social card with your name + tagline
+  3. Sitemap at /sitemap.xml listing all routes
+  4. JSON-LD Person + ProfilePage schema on homepage — feeds Google's Knowledge Graph
+  5. robots.ts polish
+
+  Building all five now.
+
+⏺ Update(app/layout.tsx)
+  ⎿  Added 74 lines, removed 5 lines
+      12    themeColor: '#ffffff',
+      13  }
+      14
+      15 +const SITE_URL = 'https://suniltiwari.io'
+      16 +const SITE_NAME = 'Sunil Tiwari'
+      17 +const SITE_DESCRIPTION =
+      18 +  'Sunil Tiwari — AI thought leader, engineer, and computer scientist. CEO of Octopod AI, Member of Tech
+         +nical Staff at eBay, ex-CTO of Fulloop AI. Writing, speaking, and building at the frontier of AI agents,
+         + LLM memory systems, and applied machine learning.'
+      19 +
+      20  export const metadata: Metadata = {
+      16 -  metadataBase: new URL('https://suniltiwari.io/'),
+      21 +  metadataBase: new URL(SITE_URL),
+      22    alternates: {
+      18 -    canonical: '/'
+      23 +    canonical: '/',
+      24    },
+      25    title: {
+      21 -    default: 'Sunil Tiwari',
+      22 -    template: '%s | Sunil Tiwari'
+      26 +    default: 'Sunil Tiwari — AI Thought Leader, Engineer, Computer Scientist',
+      27 +    template: '%s | Sunil Tiwari',
+      28    },
+      24 -  description: 'Sunil Tiwari — CEO of Octopod AI. Member of Technical Staff at eBay. Ex-CTO of Fulloop A
+         -I. Previously at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Based in the SF Bay Area.',
+      29 +  description: SITE_DESCRIPTION,
+      30 +  applicationName: SITE_NAME,
+      31 +  authors: [{ name: 'Sunil Tiwari', url: SITE_URL }],
+      32 +  creator: 'Sunil Tiwari',
+      33 +  publisher: 'Sunil Tiwari',
+      34 +  category: 'technology',
+      35 +  keywords: [
+      36 +    'Sunil Tiwari',
+      37 +    'AI thought leader',
+      38 +    'AI engineer',
+      39 +    'computer scientist',
+      40 +    'artificial intelligence',
+      41 +    'AI agents',
+      42 +    'LLM',
+      43 +    'large language models',
+      44 +    'machine learning',
+      45 +    'software engineer',
+      46 +    'full-stack engineer',
+      47 +    'Octopod AI',
+      48 +    'Fulloop AI',
+      49 +    'eBay engineering',
+      50 +    'Amazon Music engineering',
+      51 +    'AI memory systems',
+      52 +    'context engineering',
+      53 +    'AI startup founder',
+      54 +    'San Francisco Bay Area',
+      55 +    'San José State University',
+      56 +    'sdtiwari',
+      57 +    'CoderCouple',
+      58 +  ],
+      59 +  openGraph: {
+      60 +    type: 'profile',
+      61 +    locale: 'en_US',
+      62 +    url: SITE_URL,
+      63 +    siteName: SITE_NAME,
+      64 +    title: 'Sunil Tiwari — AI Thought Leader, Engineer, Computer Scientist',
+      65 +    description: SITE_DESCRIPTION,
+      66 +    firstName: 'Sunil',
+      67 +    lastName: 'Tiwari',
+      68 +    username: 'sdtiwari',
+      69 +    gender: 'male',
+      70 +  },
+      71 +  twitter: {
+      72 +    card: 'summary_large_image',
+      73 +    title: 'Sunil Tiwari — AI Thought Leader, Engineer, Computer Scientist',
+      74 +    description: SITE_DESCRIPTION,
+      75 +    creator: '@sunil28071987',
+      76 +    site: '@sunil28071987',
+      77 +  },
+      78 +  robots: {
+      79 +    index: true,
+      80 +    follow: true,
+      81 +    googleBot: {
+      82 +      index: true,
+      83 +      follow: true,
+      84 +      'max-image-preview': 'large',
+      85 +      'max-snippet': -1,
+      86 +      'max-video-preview': -1,
+      87 +    },
+      88 +  },
+      89 +  verification: {
+      90 +    // Drop your token from Google Search Console here when you set it up:
+      91 +    // google: 'xxxxxxxxxxxxxxxx',
+      92 +    // bing: 'xxxxxxxxxxxxxxxx',
+      93 +  },
+      94  };
+      95
+      96  const geist = Geist({
+
+⏺ Write(app/sitemap.ts)
+  ⎿  Wrote 39 lines to app/sitemap.ts
+       1 import type { MetadataRoute } from 'next'
+       2 import { SPEAKING_ENGAGEMENTS, JUDGING_OPPORTUNITIES } from './data'
+       3
+       4 const SITE_URL = 'https://suniltiwari.io'
+       5
+       6 export default function sitemap(): MetadataRoute.Sitemap {
+       7   const now = new Date()
+       8
+       9   const staticRoutes: MetadataRoute.Sitemap = [
+      10     {
+     … +29 lines (ctrl+o to expand)
+
+⏺ Write(app/opengraph-image.tsx)
+  ⎿  Wrote 87 lines to app/opengraph-image.tsx
+       1 import { ImageResponse } from 'next/og'
+       2
+       3 export const runtime = 'edge'
+       4
+       5 export const alt = 'Sunil Tiwari — AI Thought Leader, Engineer, Computer Scientist'
+       6 export const size = { width: 1200, height: 630 }
+       7 export const contentType = 'image/png'
+       8
+       9 export default async function Image() {
+      10   return new ImageResponse(
+     … +77 lines (ctrl+o to expand)
+
+⏺ Update(app/robots.ts)
+  ⎿  Added 11 lines, removed 7 lines
+       1  import type { MetadataRoute } from 'next'
+       2 -import { WEBSITE_URL } from '@/lib/constants'
+       2
+       3 +const SITE_URL = 'https://suniltiwari.io'
+       4 +
+       5  export default function robots(): MetadataRoute.Robots {
+       6    return {
+       6 -    rules: {
+       7 -      userAgent: '*',
+       8 -      allow: '/',
+       9 -      disallow: '/private/',
+      10 -    },
+      11 -    sitemap: `${WEBSITE_URL}/sitemap.xml`,
+       7 +    rules: [
+       8 +      {
+       9 +        userAgent: '*',
+      10 +        allow: '/',
+      11 +        disallow: ['/api/', '/private/'],
+      12 +      },
+      13 +    ],
+      14 +    sitemap: `${SITE_URL}/sitemap.xml`,
+      15 +    host: SITE_URL,
+      16    }
+      17  }
+
+⏺ Now adding the JSON-LD Person + WebSite schema to the homepage. Need to find the right insertion point in page.tsx.
+
+⏺ Reading 1 file… (ctrl+o to expand)
+  ⎿  app/page.tsx
+
+⏺ Update(app/page.tsx)
+  ⎿  Added 78 lines
+      145    )
+      146  }
+      147
+      148 +const JSON_LD = {
+      149 +  '@context': 'https://schema.org',
+      150 +  '@graph': [
+      151 +    {
+      152 +      '@type': 'Person',
+      153 +      '@id': 'https://suniltiwari.io/#person',
+      154 +      name: 'Sunil Tiwari',
+      155 +      givenName: 'Sunil',
+      156 +      familyName: 'Tiwari',
+      157 +      url: 'https://suniltiwari.io',
+      158 +      image: 'https://suniltiwari.io/sunil-headshot.png',
+      159 +      jobTitle: 'CEO',
+      160 +      description:
+      161 +        'AI thought leader, engineer, and computer scientist. CEO of Octopod AI, Member of Technical St
+          +aff at eBay, ex-CTO of Fulloop AI.',
+      162 +      email: 'mailto:sunil28071987@gmail.com',
+      163 +      sameAs: [
+      164 +        'https://github.com/CoderCouple',
+      165 +        'https://www.linkedin.com/in/sdtiwari/',
+      166 +        'https://x.com/sunil28071987',
+      167 +        'https://blog.suniltiwari.io',
+      168 +      ],
+      169 +      worksFor: {
+      170 +        '@type': 'Organization',
+      171 +        name: 'Octopod AI',
+      172 +      },
+      173 +      alumniOf: [
+      174 +        {
+      175 +          '@type': 'CollegeOrUniversity',
+      176 +          name: 'San José State University',
+      177 +          url: 'https://www.sjsu.edu',
+      178 +        },
+      179 +        {
+      180 +          '@type': 'CollegeOrUniversity',
+      181 +          name: "Vivekanand Education Society's Institute Of Technology",
+      182 +        },
+      183 +      ],
+      184 +      knowsAbout: [
+      185 +        'Artificial Intelligence',
+      186 +        'AI Agents',
+      187 +        'Large Language Models',
+      188 +        'Machine Learning',
+      189 +        'Software Engineering',
+      190 +        'Full-Stack Development',
+      191 +        'AI Memory Systems',
+      192 +        'Context Engineering',
+      193 +        'Computer Science',
+      194 +      ],
+      195 +      address: {
+      196 +        '@type': 'PostalAddress',
+      197 +        addressLocality: 'San Francisco Bay Area',
+      198 +        addressRegion: 'CA',
+      199 +        addressCountry: 'US',
+      200 +      },
+      200 +      },
+      202 +    {
+      203 +      '@type': 'WebSite',
+      204 +      '@id': 'https://suniltiwari.io/#website',
+      205 +      url: 'https://suniltiwari.io',
+      206 +      name: 'Sunil Tiwari',
+      207 +      description:
+      208 +        'Personal site of Sunil Tiwari — AI thought leader, engineer, and computer scientist.',
+      209 +      publisher: { '@id': 'https://suniltiwari.io/#person' },
+      210 +      inLanguage: 'en-US',
+      211 +    },
+      212 +    {
+      213 +      '@type': 'ProfilePage',
+      214 +      '@id': 'https://suniltiwari.io/#profile',
+      215 +      url: 'https://suniltiwari.io',
+      216 +      mainEntity: { '@id': 'https://suniltiwari.io/#person' },
+      217 +      isPartOf: { '@id': 'https://suniltiwari.io/#website' },
+      218 +    },
+      219 +  ],
+      220 +}
+      221 +
+      222  export default function Personal() {
+      223    return (
+      224      <motion.main
+     ...
+      227        initial="hidden"
+      228        animate="visible"
+      229      >
+      230 +      <script
+      231 +        type="application/ld+json"
+      232 +        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+      233 +      />
+      234
+      235        <motion.section
+      236          variants={VARIANTS_SECTION}
+
+⏺ Bash(npm run build 2>&1 | tail -25)
+  ⎿     Generating static pages (6/8)
+      ✓ Generating static pages (8/8)
+        Finalizing page optimization ...
+     … +21 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Build clean — /opengraph-image, /sitemap.xml, /robots.txt all in the routes list. Pushing.
+
+⏺ Bash(git add -A && git -c user.name="Sunil Tiwari" -c user.email="sunil28071987@gmail.com" commit -m "SEO: OG/Twitter cards, JSON-LD Person+WebSite, sitemap, dynamic…)
+  ⎿   5 files changed, 289 insertions(+), 12 deletions(-)
+      create mode 100644 app/opengraph-image.tsx
+      create mode 100644 app/sitemap.ts
+     … +2 lines (ctrl+o to expand)
+
+❯ remoeve this Member of Technical St
+            +aff at eBay,
+
+⏺ Removing "Member of Technical Staff at eBay" from all the descriptive/positioning text (keeping eBay in your Work Experience as factual history — only stripping it from the lead-positioning copy).
+
+⏺ Update(app/layout.tsx)
+  ⎿  Added 1 line, removed 1 line
+      15  const SITE_URL = 'https://suniltiwari.io'
+      16  const SITE_NAME = 'Sunil Tiwari'
+      17  const SITE_DESCRIPTION =
+      18 -  'Sunil Tiwari — AI thought leader, engineer, and computer scientist. CEO of Octopod AI, Member of Technical Staff at eBay, ex-CTO of Fulloop AI. Writing, speaking, and building at the frontier of AI agents, LLM memory systems,
+         - and applied machine learning.'
+      18 +  'Sunil Tiwari — AI thought leader, engineer, and computer scientist. CEO of Octopod AI and ex-CTO of Fulloop AI. Writing, speaking, and building at the frontier of AI agents, LLM memory systems, and applied machine learning.'
+      19
+      20  export const metadata: Metadata = {
+      21    metadataBase: new URL(SITE_URL),
+
+⏺ Update(app/page.tsx)
+  ⎿  Added 1 line, removed 1 line
+      158        image: 'https://suniltiwari.io/sunil-headshot.png',
+      159        jobTitle: 'CEO',
+      160        description:
+      161 -        'AI thought leader, engineer, and computer scientist. CEO of Octopod AI, Member of Technical Staff at eBay, ex-CTO of Fulloop AI.',
+      161 +        'AI thought leader, engineer, and computer scientist. CEO of Octopod AI and ex-CTO of Fulloop AI.',
+      162        email: 'mailto:sunil28071987@gmail.com',
+      163        sameAs: [
+      164          'https://github.com/CoderCouple',
+
+      241              Bio
+      242            </p>
+      243            <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+      244 -            CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Octopod AI</strong>,
+      245 -            and a Member of Technical Staff at eBay — based in the San Francisco Bay Area.
+      246 -            I work at the intersection of full-stack systems and applied AI.
+      244 +            CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Octopod AI</strong>{' '}
+      245 +            — AI thought leader, engineer, and computer scientist based in the San Francisco Bay Area.
+      246 +            I build and write at the intersection of AI agents, LLM memory systems, and applied machine learning.
+      247            </p>
+      248            <p className="text-zinc-600 dark:text-zinc-400">
+      249              Previously CTO of Fulloop AI, an LLM-powered technical interview platform.
+      250 -            Before that, shipped at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Most of my
+      251 -            tinkering — AI agents, LLM memory systems, developer tooling — lives on{' '}
+      250 +            Before founding ventures, I shipped at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Most of my
+      251 +            tinkering — AI agents, memory systems, developer tooling — lives on{' '}
+      252              <a className="underline" href="https://github.com/CoderCouple" target="_blank" rel="noopener noreferrer">GitHub</a>.
+      253            </p>
+      254          </div>
+
+⏺ Update(app/page.tsx)
+  ⎿  Added 4 lines, removed 4 lines
+      265              <p className="text-sm text-zinc-600 dark:text-zinc-400">Building AI agents and developer tooling at the cutting edge</p>
+      266            </div>
+      267            <div className="rounded-lg bg-gradient-to-br from-emerald-50 to-teal-50 p-4 dark:from-emerald-950/20 dark:to-teal-950/20">
+      268 -            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">eBay — Member of Technical Staff</h4>
+      269 -            <p className="text-sm text-zinc-600 dark:text-zinc-400">Full-stack + AI engineering on production systems at scale</p>
+      270 -          </div>
+      271 -          <div className="rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 p-4 dark:from-purple-950/20 dark:to-pink-950/20">
+      268              <h4 className="font-medium text-zinc-900 dark:text-zinc-100">CTO — Fulloop AI</h4>
+      269              <p className="text-sm text-zinc-600 dark:text-zinc-400">LLM-powered technical interview platform; led engineering from zero to one</p>
+      270            </div>
+      271 +          <div className="rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 p-4 dark:from-purple-950/20 dark:to-pink-950/20">
+      272 +            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">AI Thought Leadership</h4>
+      273 +            <p className="text-sm text-zinc-600 dark:text-zinc-400">Writing, speaking, and open-sourcing work on AI agents, memory systems, and context engineering</p>
+      274 +          </div>
+      275            <div className="rounded-lg bg-gradient-to-br from-amber-50 to-orange-50 p-4 dark:from-amber-950/20 dark:to-orange-950/20">
+      276              <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Education</h4>
+      277              <p className="text-sm text-zinc-600 dark:text-zinc-400">MS Computer Software Engineering, San José State (3.76 GPA) · BE Information Technology, VESIT Mumbai</p>
+
+⏺ Update(app/header.tsx)
+  ⎿  Added 1 line, removed 1 line
+       96              Sunil Tiwari
+       97            </h1>
+       98            <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium">
+       99 -            CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-CTO @ Fulloop AI
+       99 +            AI Thought Leader · CEO @ Octopod AI · Ex-CTO @ Fulloop AI
+      100            </p>
+      101            <p className="mx-auto max-w-4xl text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+      102              Engineer in the San Francisco Bay Area working on full-stack systems and AI agents.
+
+⏺ Update(app/cover.tsx)
+  ⎿  File not found
+
+⏺ Update(app/opengraph-image.tsx)
+  ⎿  Removed 2 lines
+      76          >
+      77            <span>CEO @ Octopod AI</span>
+      78            <span>·</span>
+      79 -          <span>MTS @ eBay</span>
+      80 -          <span>·</span>
+      79            <span>Ex-CTO @ Fulloop AI</span>
+      80          </div>
+      81        </div>
+
+⏺ Bash(npm run build 2>&1 | tail -8 && git add -A && git -c user.name="Sunil Tiwari" -c user.email="sunil28071987@gmail.com" commit -m "Remove eBay MTS from positionin…)
+  ⎿    ├ chunks/4bd1b696-19d2a82ef2525b2b.js  52.9 kB
+       ├ chunks/517-fb2dc3a8baf6ba1a.js       50.5 kB
+       └ other shared chunks (total)          1.91 kB
+     … +9 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+⏺ Pushed. (cover.tsx was already deleted in earlier cleanup — harmless error.)
+
+  What's now live for SEO
+
+  Metadata (app/layout.tsx):
+  - Title: Sunil Tiwari — AI Thought Leader, Engineer, Computer Scientist
+  - Description leads with CEO/AI/ex-CTO, no eBay MTS
+  - Keywords array (22 terms covering AI agents, LLM, CS, your handles)
+  - Full Open Graph (profile type) + Twitter summary_large_image cards
+  - robots directive with max-image-preview: large (so Google can show your OG card in image search)
+
+  Dynamic Open Graph image (/opengraph-image):
+  - 1200×630 gradient card, "ST" mark, name, AI Thought Leader · Engineer · Computer Scientist, plus CEO @ Octopod AI · Ex-CTO @ Fulloop AI
+  - Auto-served when anyone shares your URL on LinkedIn, X, Slack, etc. Test: paste suniltiwari.io into the LinkedIn Post Inspector or Twitter Card Validator
+
+  JSON-LD structured data (homepage):
+  - Person schema — name, jobTitle, worksFor (Octopod AI), alumniOf (SJSU + VESIT), sameAs (GitHub/LinkedIn/X/blog), knowsAbout (9 AI/CS topics), address
+  - WebSite + ProfilePage schemas linked via @id
+  - Feeds Google's Knowledge Graph — over time can produce a rich "Knowledge Panel"-style result for "Sunil Tiwari"
+
+  Sitemap (/sitemap.xml):
+  - Includes /, /contact, and every /speaking/<slug> + /judging/<slug> derived from your data files
+  - Auto-updates whenever you add entries
+
+  robots.ts: points crawlers at the sitemap, disallows /api/ and /private/.
+
+  What you should do (5–15 min total, big SEO wins)
+
+  1. Google Search Console → https://search.google.com/search-console — add property suniltiwari.io, verify via DNS TXT or a verification meta tag. If you go the meta-tag route, paste your token and I'll wire it into layout.tsx (the
+  verification.google field is already stubbed).
+  2. Submit sitemap in Search Console once verified → URL https://suniltiwari.io/sitemap.xml. Same for https://blog.suniltiwari.io/sitemap.xml for the blog.
+  3. Bing Webmaster Tools → https://www.bing.com/webmasters — same flow. Bing also feeds DuckDuckGo and many AI search engines.
+  4. Test your OG card by sharing https://suniltiwari.io in a private message on LinkedIn / X first — make sure it renders correctly. If LinkedIn caches a stale preview, use the LinkedIn Post Inspector to refresh.
+  5. Optional but high-value: Link to suniltiwari.io from your GitHub profile bio, LinkedIn "Websites" section, and X bio. Inbound links from high-authority domains (GitHub/LinkedIn) accelerate ranking for "Sunil Tiwari".
+
+  What I deliberately didn't do
+
+  - Per-page metadata for /speaking/[slug] and /judging/[slug] — those are 'use client' components, which can't export metadata directly. Worth refactoring later by adding a server-side page.tsx wrapper that exports generateMetadata, with the
+  existing client logic moved into a child component. Not critical right now since those slugs are all "coming-soon" placeholders.
+  - Verification tokens — stubbed in metadata; drop yours in when you have them.
+  - Backlink building / content marketing — that's the off-page side of SEO. Comes from posting on your blog, X, LinkedIn over time. The on-page foundation is now solid.
+
+  Want me to refactor the detail pages so they can have per-talk SEO metadata once you fill them in, or move on?
+
+
+⏺ Both submitted and indexed successfully. The "Couldn't fetch" was a transient state during initial submission — Google's now happily seeing both:
+
+  - suniltiwari.io → 4 pages (/, /contact, /speaking/coming-soon, /judging/coming-soon)
+  - blog.suniltiwari.io → 9 pages (your 7 audio-DL/component posts + the index and tag pages)
+
+  What to watch in Search Console over the next 1–4 weeks
+
+  1. Coverage (left nav → Pages) — should show pages moving from "Discovered" → "Crawled" → "Indexed". This usually takes 3–14 days. If anything gets stuck in "Discovered – currently not indexed", that's normal for new sites and resolves over
+  time.
+  2. Performance — once you start showing in results, you'll see impressions and clicks. Search "Sunil Tiwari" in incognito mode in ~1–2 weeks to see where you rank.
+  3. Enhancements (after a week) — Search Console will report on your structured data (Person / WebSite / ProfilePage schemas). You can also test now via the Rich Results Test by pasting https://suniltiwari.io.
+
+  One-time accelerators
+
+  - Request indexing manually in Search Console: paste your homepage URL into the top search bar → "Request Indexing". Jumpstarts the first crawl. Worth doing for /, /contact, and maybe 2-3 important blog posts.
+  - OG card sanity check — share https://suniltiwari.io once on LinkedIn / X to confirm the dynamic OG image renders correctly. If LinkedIn caches an old empty preview, use LinkedIn Post Inspector to force a refresh.
+
+  Want me to refactor the speaking/judging detail pages now so they can have per-entry SEO metadata when you fill them in? Or move to something else?
+
+✻ Worked for 29s
+
+※ recap: Goal: launch suniltiwari.io as your AI-thought-leader portfolio with strong SEO. Status: site, blog subdomain, visual subdomain, sitemap, OG image, and JSON-LD are all live and indexed. Next: optionally refactor the speaking and judging
+   detail pages so each entry can carry its own SEO metadata.
+
+❯ how to do this  5. Optional but high-value: Link to suniltiwari.io from your GitHub profile bio, LinkedIn "Websites" section, and X bio. Inbound links from high-authority domains (GitHub/LinkedIn) accelerate ranking for "Sunil Tiwari".
+
+⏺ Three quick UI tasks on the platforms themselves (I can't do these via API). 2–3 minutes each.
+
+  GitHub (highest SEO authority of the three)
+
+  1. Go to https://github.com/CoderCouple (your profile)
+  2. Click Edit profile (button on left under your avatar)
+  3. Fill in these fields:
+    - Name: Sunil Tiwari (currently shows "Payal Sunil" — fix this!)
+    - Bio: Something like AI Thought Leader · Engineer · CS · CEO @ Octopod AI · Ex-CTO @ Fulloop AI
+    - URL / Blog: https://suniltiwari.io
+    - Location: San Francisco Bay Area
+    - Pronouns: (optional, he/him per your LinkedIn)
+  4. Save
+
+  Bonus — GitHub profile README (huge SEO win): create a repo named exactly CoderCouple (matching your username). The README.md inside that repo renders at the top of your profile page. Drop a markdown intro with prominent link to
+  suniltiwari.io. I can generate the README content for you if you want — just say the word.
+
+  LinkedIn
+
+  1. Go to https://www.linkedin.com/in/sdtiwari/
+  2. Click Edit intro (pencil icon next to your name)
+  3. Scroll to Contact info → click Add contact info
+  4. Add Website → https://suniltiwari.io → Type: Personal
+  5. (Optional, also high-value) Add https://blog.suniltiwari.io as a second website with type Blog
+  6. Save
+
+  Bonus — LinkedIn Featured section (below your About): you can pin links/posts. Add a featured link to suniltiwari.io with the OG image as preview. This shows up prominently on your profile page and is crawlable.
+
+  X (Twitter)
+
+  1. Go to https://x.com/sunil28071987 → Edit profile
+  2. Website field → https://suniltiwari.io
+  3. Bio — include "suniltiwari.io" in plain text (X makes the URL clickable in bio too)
+  4. Save
+
+  Why this matters for SEO
+
+  These three platforms are extremely high domain authority. A backlink from each tells Google "this person is who they say they are" and feeds the Knowledge Graph (the same source as your JSON-LD sameAs array). The combination of:
+  - Your site's JSON-LD listing GitHub/LinkedIn/X as sameAs
+  - Those three profiles linking back to your site
+
+  …creates a tight verified loop. Google starts trusting "Sunil Tiwari" → suniltiwari.io as the canonical match within a few weeks.
+
+  After you've done all three
+
+  Tell me, and we can do a final pass:
+  - Test rich results for your homepage
+  - Confirm the OG image renders on LinkedIn shares
+  - Optionally request indexing for the homepage in Search Console
+
+✻ Cogitated for 38s
+
+❯ my github is shared between me and my wife
+
+⏺ Ah — that changes the GitHub plan. CoderCouple is a joint account, so taking it over solo would erase your wife's presence there. Skip the "rename profile / change bio to be Sunil-only" suggestion entirely. Here's the revised play:
+
+  Option A (recommended for your personal brand SEO) — Create your own GitHub
+
+  A separate handle, owned only by you, that you can plant flags on:
+
+  1. Go to https://github.com → sign up with a new email or "add account"
+  2. Pick a clean handle. Best options for SEO/recognition: sdtiwari (matches your LinkedIn — consistency wins Knowledge Graph trust) or suniltiwari
+  3. Set up the new account:
+    - Name: Sunil Tiwari
+    - Bio: AI Thought Leader · Engineer · CS · CEO @ Octopod AI · Ex-CTO @ Fulloop AI
+    - URL: https://suniltiwari.io
+    - Location: San Francisco Bay Area
+  4. Create a repo with the exact same name as the handle (e.g. sdtiwari/sdtiwari) — the README.md inside it auto-renders at the top of your profile page. Big SEO + bio real estate.
+  5. Tell me your new handle and I'll update the JSON-LD sameAs array on suniltiwari.io so Google treats it as your canonical GitHub.
+
+  Repos: you can fork from CoderCouple (no contribution loss in commit history) or add yourself as a co-author on commits in shared repos so contributions show on both accounts. Not critical for SEO — what matters is the verified profile-to-site
+   link.
+
+  Option B — Keep using CoderCouple as-is
+
+  If a second account feels like too much, just add https://suniltiwari.io to CoderCouple's URL field alongside whatever's there (or update the bio to mention both you and Payal). Doesn't hurt either party.
+
+  But know the tradeoff: CoderCouple isn't purely you, so Google's confidence linking it to "Sunil Tiwari" the person is weaker than a solo sdtiwari account would be.
+
+  Option C — Update the JSON-LD to drop GitHub for now
+
+  If you'd rather not link a shared profile in your structured data, I can pull GitHub out of the sameAs array on suniltiwari.io until you have a personal handle. Conservative move — keeps your schema 100% accurate.
+
+  What I'd actually recommend
+
+  A, because it's a one-time 5-minute setup that pays off forever. Even with zero repos, a profile README on a clean sdtiwari handle linking back to suniltiwari.io is a high-authority backlink Google will reward. You can mirror your most
+  important repos from CoderCouple over later as a non-blocking task.
+
+  For LinkedIn and X — those are yours alone, so the prior advice stands as written.
+
+  Which option do you want to go with?
+
+✻ Sautéed for 44s
+
+❯ Bonus — GitHub profile README (huge SEO win): create a repo named exactly CoderCouple (matching your username). The README.md inside that repo renders at the top of your profile page. Drop a markdown intro with prominent link to
+    suniltiwari.io. I can generate the README content for you if you want — just say the word.
+
+⏺ Since CoderCouple is shared with Payal, the README should represent both of you — not be a Sunil-solo bio. Here's a draft that keeps your AI thought leader positioning, gives Payal equal billing, and works as a high-SEO backlink for both your
+  sites.
+
+  How to publish
+
+  1. Sign in to GitHub as CoderCouple
+  2. Go to https://github.com/new
+  3. Repository name: CoderCouple (must match the account name exactly — that's the magic)
+  4. Public, add a README → Create repository
+  5. Edit the README.md → paste the content below → commit
+
+  README content
+
+  # CoderCouple 👋
+
+  We're **Sunil Tiwari** and **Payal Fofadiya** — a married pair of software engineers in the San Francisco Bay Area, building at the intersection of AI agents, LLM infrastructure, and applied machine learning.
+
+  This shared account is where our joint experiments live, alongside individual side projects we tinker with after-hours.
+
+  ---
+
+  ## Sunil Tiwari
+
+  **AI Thought Leader · Engineer · Computer Scientist**
+
+  - CEO @ [Octopod AI](https://github.com/CoderCouple?tab=repositories&q=octopod)
+  - Ex-CTO of [Fulloop AI](https://www.fulloop.ai)
+  - MS Computer Software Engineering, San José State University
+  - Currently shipping at eBay
+
+  🌐 **[suniltiwari.io](https://suniltiwari.io)** · 📝 [blog.suniltiwari.io](https://blog.suniltiwari.io) · 💼 [LinkedIn](https://www.linkedin.com/in/sdtiwari/) · 🐦 [@sunil28071987](https://x.com/sunil28071987)
+
+  ---
+
+  ## Payal Fofadiya
+
+  **AI Founder · Engineering Leader · Speaker**
+
+  - Engineering Manager, Agent Platform @ LinkedIn
+  - Founder & CEO of [Fulloop AI](https://www.fulloop.ai)
+  - Previously Staff Engineer @ Snap · EM @ Uber · SWE @ Meta
+
+  🌐 **[fofadiya.com](https://fofadiya.com)** · 📝 [Substack](https://substack.com/@pfofadiya/posts) · 💼 [LinkedIn](https://www.linkedin.com/in/payalfofadiya) · 🐦 [@payalfofadiya](https://x.com/payalfofadiya)
+
+  ---
+
+  ## 🤝 What we work on together
+
+  - **[Fulloop AI](https://www.fulloop.ai)** — AI-powered technical interview platform. Payal as Founder/CEO, Sunil as CTO. Cheating-resistant assessments, real-world coding environments, structured rubrics.
+  - **Context Zero** — research and tooling for hierarchical AI memory systems. ([blog series](https://blog.suniltiwari.io))
+  - Our personal portfolio sites — both built from a shared design language, deployed on Vercel.
+
+  ---
+
+  ## What we're exploring
+
+  We share a fascination with how AI agents reason, remember, and act over long horizons — and we ship code that explores those questions in production. If you're working on AI infrastructure, agent platforms, or interview tech, our DMs are open
+   on both sides.
+
+  Why this is good SEO for both of you
+
+  - Two prominent backlinks to suniltiwari.io (your site + your blog) on a high-authority GitHub profile
+  - Same for Payal's fofadiya.com + Substack
+  - Reinforces both of you in Google's Knowledge Graph as the verified identities behind those sites
+  - Joint section explains the shared account naturally — no confusion about whose work is whose
+
+  Want me to also generate a matching short description (the one that shows under the repo title in your "popular repositories" list) when you create the repo? Or are you good from here?
+
+✻ Churned for 1m 13s
+
+⏺ Verification results — everything checks out cleanly. Now picking up the "deliberately didn't do" items.
+
+  Verification recap (✅ all clean)
+
+  ┌─────────────────────┬──────────────────────────────────────────────────────┐
+  │        Check        │                        Result                        │
+  ├─────────────────────┼──────────────────────────────────────────────────────┤
+  │ JSON-LD on homepage │ ✓ Person + WebSite + ProfilePage all present         │
+  ├─────────────────────┼──────────────────────────────────────────────────────┤
+  │ OG meta tags        │ ✓ title, description, image (1200×630), type=profile │
+  ├─────────────────────┼──────────────────────────────────────────────────────┤
+  │ Twitter card        │ ✓ summary_large_image, creator=@sunil28071987        │
+  ├─────────────────────┼──────────────────────────────────────────────────────┤
+  │ OG image endpoint   │ ✓ HTTP 200, image/png, 1200×630 confirmed            │
+  └─────────────────────┴──────────────────────────────────────────────────────┘
+
+  Saved a copy of the rendered OG image to /tmp/og-test.png if you want to view it.
+
+  Manual steps remaining (you'll need to do these in browser tools)
+
+  1. Rich Results Test → paste https://suniltiwari.io → should detect Person + WebSite + ProfilePage
+  2. LinkedIn Post Inspector → paste https://suniltiwari.io → see the OG card render
+  3. Search Console → URL inspection bar → paste https://suniltiwari.io → "Request Indexing"
+
+  Now tackling the deferred items

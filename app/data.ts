@@ -100,7 +100,7 @@ export const PROJECTS: Project[] = [
     name: 'Context Zero',
     description:
       'Personal AI memory layer — a hierarchical, long-term memory system for LLM agents. Backend, infra, and Chrome extension.',
-    link: 'https://github.com/CoderCouple?tab=repositories&q=context0',
+    link: 'https://blog.suniltiwari.io',
     video: '/cover.jpg',
     id: 'project-context0',
   },
@@ -128,7 +128,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: 'CEO',
     start: '2025',
     end: 'Present',
-    link: 'https://github.com/CoderCouple?tab=repositories&q=octopod',
+    link: 'https://octopodai.app',
     id: 'work-octopod',
     logo: '/logos/octopod_logo.png',
   },

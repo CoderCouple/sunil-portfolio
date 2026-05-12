@@ -169,6 +169,7 @@ const JSON_LD = {
       worksFor: {
         '@type': 'Organization',
         name: 'Octopod AI',
+        url: 'https://octopodai.app',
       },
       alumniOf: [
         {
@@ -241,7 +242,7 @@ export default function Personal() {
             Bio
           </p>
           <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-            CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Octopod AI</strong>{' '}
+            CEO of <a href="https://octopodai.app" target="_blank" rel="noopener noreferrer" className="font-medium text-zinc-900 dark:text-zinc-100 underline">Octopod AI</a>{' '}
             — AI thought leader, engineer, and computer scientist based in the San Francisco Bay Area.
             I build and write at the intersection of AI agents, LLM memory systems, and applied machine learning.
           </p>
