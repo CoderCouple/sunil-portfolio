@@ -76,8 +76,6 @@ export default async function Image() {
         >
           <span>CEO @ Octopod AI</span>
           <span>·</span>
-          <span>MTS @ eBay</span>
-          <span>·</span>
           <span>Ex-CTO @ Fulloop AI</span>
         </div>
       </div>

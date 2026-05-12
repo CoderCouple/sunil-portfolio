@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 const SITE_URL = 'https://suniltiwari.io'
 const SITE_NAME = 'Sunil Tiwari'
 const SITE_DESCRIPTION =
-  'Sunil Tiwari — AI thought leader, engineer, and computer scientist. CEO of Octopod AI, Member of Technical Staff at eBay, ex-CTO of Fulloop AI. Writing, speaking, and building at the frontier of AI agents, LLM memory systems, and applied machine learning.'
+  'Sunil Tiwari — AI thought leader, engineer, and computer scientist. CEO of Octopod AI and ex-CTO of Fulloop AI. Writing, speaking, and building at the frontier of AI agents, LLM memory systems, and applied machine learning.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

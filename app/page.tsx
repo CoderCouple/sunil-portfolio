@@ -158,7 +158,7 @@ const JSON_LD = {
       image: 'https://suniltiwari.io/sunil-headshot.png',
       jobTitle: 'CEO',
       description:
-        'AI thought leader, engineer, and computer scientist. CEO of Octopod AI, Member of Technical Staff at eBay, ex-CTO of Fulloop AI.',
+        'AI thought leader, engineer, and computer scientist. CEO of Octopod AI and ex-CTO of Fulloop AI.',
       email: 'mailto:sunil28071987@gmail.com',
       sameAs: [
         'https://github.com/CoderCouple',
@@ -241,14 +241,14 @@ export default function Personal() {
             Bio
           </p>
           <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-            CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Octopod AI</strong>,
-            and a Member of Technical Staff at eBay — based in the San Francisco Bay Area.
-            I work at the intersection of full-stack systems and applied AI.
+            CEO of <strong className="font-medium text-zinc-900 dark:text-zinc-100">Octopod AI</strong>{' '}
+            — AI thought leader, engineer, and computer scientist based in the San Francisco Bay Area.
+            I build and write at the intersection of AI agents, LLM memory systems, and applied machine learning.
           </p>
           <p className="text-zinc-600 dark:text-zinc-400">
             Previously CTO of Fulloop AI, an LLM-powered technical interview platform.
-            Before that, shipped at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Most of my
-            tinkering — AI agents, LLM memory systems, developer tooling — lives on{' '}
+            Before founding ventures, I shipped at Amazon Music, Roku, Yahoo, Deloitte, and TCS. Most of my
+            tinkering — AI agents, memory systems, developer tooling — lives on{' '}
             <a className="underline" href="https://github.com/CoderCouple" target="_blank" rel="noopener noreferrer">GitHub</a>.
           </p>
         </div>
@@ -265,12 +265,12 @@ export default function Personal() {
             <p className="text-sm text-zinc-600 dark:text-zinc-400">Building AI agents and developer tooling at the cutting edge</p>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-emerald-50 to-teal-50 p-4 dark:from-emerald-950/20 dark:to-teal-950/20">
-            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">eBay — Member of Technical Staff</h4>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">Full-stack + AI engineering on production systems at scale</p>
-          </div>
-          <div className="rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 p-4 dark:from-purple-950/20 dark:to-pink-950/20">
             <h4 className="font-medium text-zinc-900 dark:text-zinc-100">CTO — Fulloop AI</h4>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">LLM-powered technical interview platform; led engineering from zero to one</p>
+          </div>
+          <div className="rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 p-4 dark:from-purple-950/20 dark:to-pink-950/20">
+            <h4 className="font-medium text-zinc-900 dark:text-zinc-100">AI Thought Leadership</h4>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400">Writing, speaking, and open-sourcing work on AI agents, memory systems, and context engineering</p>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-amber-50 to-orange-50 p-4 dark:from-amber-950/20 dark:to-orange-950/20">
             <h4 className="font-medium text-zinc-900 dark:text-zinc-100">Education</h4>

@@ -96,7 +96,7 @@ export function Header() {
             Sunil Tiwari
           </h1>
           <p className="mb-6 text-xl text-zinc-600 dark:text-zinc-400 font-medium">
-            CEO @ Octopod AI · Fullstack + AI @ eBay · Ex-CTO @ Fulloop AI
+            AI Thought Leader · CEO @ Octopod AI · Ex-CTO @ Fulloop AI
           </p>
           <p className="mx-auto max-w-4xl text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
             Engineer in the San Francisco Bay Area working on full-stack systems and AI agents.
