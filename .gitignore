@@ -45,3 +45,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 public/qonfx/qonfx_video.MOV
+
+# local notes / scratch
+seo.txt
+*.notes.md
+scratch/
