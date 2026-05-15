@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const judging = JUDGING_DATA.find((j) => j.slug === slug)
   if (!judging) return {}
 
-  const title = `${judging.role || 'Judge'} — ${judging.event}`
+  const title = judging.role ? `${judging.role} — ${judging.event}` : judging.event
   const description = judging.description.slice(0, 160).replace(/\n/g, ' ')
   const url = `/judging/${judging.slug}`
 
